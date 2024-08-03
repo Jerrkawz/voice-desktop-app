@@ -108,11 +108,22 @@ function createWindow() {
         {
             label: '&File',
             submenu: [
-                {label: '&Reload',        click: () => {loadGoogleVoice();}},     // Reload Google Voice within our main window
+                {label: '&Reload',                                                // Reload Google Voice within our main window
+                      accelerator: isMac() ? 'Command+R' : 'Ctrl+R',
+                      click: () => {loadGoogleVoice();}
+                },
                 {label: 'Go to &website', click: () => {loadGoogleVoice(true);}}, // Open Google Voice externally in the user's browser
                 {type:  'separator'},
-                {label: '&Settings',      click: () => {showSettingsWindow()}},   // Open/display our Settings window
+                {label: '&Settings',                                              // Open/display Settings window
+                      accelerator: isMac() ? 'Command+,' : 'Ctrl+,',
+                      click: () => {showSettingsWindow()}
+                },
                 {type:  'separator'},
+                {
+                  label: '&Hide',                                                 // Hide the window
+                  accelerator: isMac() ? 'Command+H' : 'Ctrl+H',
+                  click: () => {win.hide();}
+                },
                 {
                   label: '&Close',                                                // Close the window
                   accelerator: isMac() ? 'Command+W' : 'Ctrl+W',
@@ -123,6 +134,7 @@ function createWindow() {
                   accelerator: isMac() ? 'Command+Q' : 'Ctrl+Shift+W',
                   click: () => {exitApplication();}
                 }
+
             ]
         },
         {
