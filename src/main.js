@@ -114,6 +114,11 @@ function createWindow() {
                 {label: '&Settings',      click: () => {showSettingsWindow()}},   // Open/display our Settings window
                 {type:  'separator'},
                 {
+                  label: '&Hide',                                                // Hide the window
+                  accelerator: isMac() ? 'Command+H' : 'Ctrl+H',
+                  click: () => {win.hide();}
+                },
+                {
                   label: '&Close',                                                // Close the window
                   accelerator: isMac() ? 'Command+W' : 'Ctrl+W',
                   click: () => {win.close();}
@@ -123,6 +128,7 @@ function createWindow() {
                   accelerator: isMac() ? 'Command+Q' : 'Ctrl+Shift+W',
                   click: () => {exitApplication();}
                 }
+
             ]
         },
         {
